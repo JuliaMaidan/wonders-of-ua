@@ -1,0 +1,39 @@
+button {
+    cursor: pointer;
+    background-color: #394014;
+    color: #FFF;
+    font-family: Jomolhari;
+}
+
+body {
+    margin: 0;
+    margin-inline: auto;
+    color: #FFF;
+    background-color: #141A19;
+}
+
+.section {
+    padding-top: 80px;
+
+    @media screen and (min-width: 835px) {
+        padding-top: 100px;
+    }
+}
+
+.section__name {
+    font-family: Jomolhari;
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 140%;
+    letter-spacing: 0.4px;
+    text-align: center;
+
+    margin-bottom: 32px;
+
+    @media screen and (min-width: 835px) {
+        font-size: 64px;
+        letter-spacing: 0.64px;
+
+        margin-bottom: 64px;
+    }
+}
