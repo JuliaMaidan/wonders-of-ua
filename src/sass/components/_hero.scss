@@ -1,0 +1,117 @@
+.hero {
+    // background-image: url('../../images/hero/tab.jpg');
+    background-image: url('../images/hero/mob.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-block: 280px 32px;
+
+    @media screen and (min-width: 835px) {
+        padding-block: 320px 64px;
+        background-image: url('../images/hero/tab.jpg');
+    }
+
+    @media screen and (min-width: 1440px) {
+        padding-block: 220px 100px;
+        background-image: url('../images/hero/desk.jpg');
+    }
+
+    &__btn {
+        padding: 12px 52px;
+        display: block;
+        margin-inline: auto;
+        border: none;
+        border-radius: 4px;
+    
+        font-size: 16px;
+        line-height: 140%;
+        letter-spacing: 0.16px;
+    
+        margin-top: 16px;
+        margin-bottom: 225px;
+    
+        @media screen and (min-width: 835px) {
+            margin-top: 0;
+            padding: 16px 52px;
+    
+            margin-bottom: 135px;
+        }
+    
+        @media screen and (min-width: 1440px) {
+            padding: 16px 52px;
+            margin-bottom: 4px;
+        }
+    }
+
+}
+
+.caption {
+    text-align: center;
+    
+    font-family: Jomolhari;
+
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 140%;
+    letter-spacing: 0.24px;
+
+    width: 224px;
+    margin-inline: auto;
+
+    @media screen and (min-width: 835px) {
+        font-size: 48px;
+        letter-spacing: 0.48px;
+        width: 448px;
+        
+        margin-bottom: 0;
+    }
+
+    &__span {
+        font-family: Jomolhari;
+        font-size: 64px;
+        line-height: 100%;
+        letter-spacing: 0.64px;
+
+        @media screen and (min-width: 835px) {
+            font-size: 128px;
+            letter-spacing: 1.28px;
+        }
+
+        &::after {
+            content: 'Ukraine';
+            display: inline-block;
+            transform: scaleY(-1);
+
+            font-size: 64px;
+            line-height: 100%;
+            letter-spacing: 0.64px;
+
+            background: linear-gradient(15deg, #FFF -54.67%, rgba(255, 255, 255, 0.00) 58.38%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+
+            @media screen and (min-width: 835px) {
+                font-size: 128px;
+                line-height: 100%;
+                letter-spacing: 1.28px;
+            }
+        }
+    }
+}
+
+.socials {
+    gap: 15px;
+    justify-content: center;
+
+    @media screen and (min-width: 835px) {
+        flex-direction: column;
+        
+        margin-right: 30px;
+        align-items: flex-end;
+    }
+
+    &__item {
+      width: 24px;
+        height: 24px;  
+    }
+}

@@ -1,0 +1,27 @@
+// ------------------UTILS STYLES----------------
+// @import './utils/fonts';
+@import './utils/variables';
+@import './utils/breakpoints';
+// @import './utils/visually-hidden';
+
+// ------------------BASE STYLES-----------------
+@import './base/reset';
+@import './base/common';
+// @import './base/container';
+
+// ------------------COMPONENTS STYLES-----------
+// @import './components/button';
+
+@import './components/header';
+@import './components/hero';
+@import './components/about';
+// @import './components/tours';
+// @import './components/gallery';
+// @import './components/reviews';
+// @import './components/travel';
+// @import './components/footer';
+
+// @import './components/modal-window-mobile';
+// @import './components/modal-main';
+// @import './components/download-modal';
+// @import './components/house-modal';

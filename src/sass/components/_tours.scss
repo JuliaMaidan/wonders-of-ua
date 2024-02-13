@@ -1,0 +1,65 @@
+.tours {
+    padding-block: 100px;
+    background-color: #141A19;
+}
+
+.tours__wrapper {
+    margin-inline: auto;
+    /* width: 770px; */
+}
+
+.tours__caption {
+    color: var(--White, #FFF);
+
+    /* H1 */
+    font-family: Jomolhari;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%;
+    /* 89.6px */
+    letter-spacing: 0.64px;
+    margin-bottom: 64px;
+    text-align: center;
+}
+
+.tours__list {
+    /* margin-inline: auto; */
+}
+
+.tour__img {
+    width: 834px;
+    height: 642px;
+    margin-bottom: 40px;
+    margin-inline: auto;
+}
+
+.tour__name {
+    color: var(--White, #FFF);
+    font-family: Jomolhari;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%;
+    /* 44.8px */
+    letter-spacing: 0.32px;
+    margin-bottom: 24px;
+}
+
+.tour__desc {}
+
+.book {
+    padding: 16px 52px;
+    border-radius: 4px;
+    background: var(--But, #394014);
+    border: none;
+
+    color: var(--White, #FFF);
+
+    font-family: Jomolhari;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%;
+    letter-spacing: 0.16px;
+}
