@@ -4,7 +4,7 @@
   "homepage": "https://JuliaMaidan.github.io/wonders-of-ua",
   "scripts": {
     "start": "parcel src/*.html ",
-    "build": "parcel build src/*.html"
+    "build": "parcel build src/*.html --public-url /wonders-of-ua/"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.11.0",
