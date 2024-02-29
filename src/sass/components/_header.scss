@@ -1,5 +1,4 @@
 .header {
-    // margin-inline: auto;
     position: fixed;
     padding-top: 16px;
     top: 0;
@@ -8,7 +7,7 @@
     bottom: 0;
     transition: background-color 0.3s ease;
     height: 60px;
-    z-index: 1000;
+    z-index: 100;
 
     &.scrolled {
         background-color: #141a19d3;
@@ -18,8 +17,12 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        width: 771px;
         margin-inline: auto;
+        width: 343px;
+
+        @media screen and (min-width: 835px) {
+            width: 771px;
+        }
 
         @media screen and (min-width: 1440px) {
             width: 1376px;
@@ -33,7 +36,13 @@
 }
 
 .menu {
-    gap: 32px;
+    display: none;
+
+    @media screen and (min-width: 835px) {
+        gap: 32px;
+        display: flex;
+    }
+    
 
     @media screen and (min-width: 1440px) {
         gap: 64px;
@@ -46,5 +55,11 @@
         font-weight: 700;
         line-height: 140%;
         letter-spacing: 0.18px;
+
+        & a {
+            color: #fff;
+            text-decoration: none;
+        }
     }
 }
+
