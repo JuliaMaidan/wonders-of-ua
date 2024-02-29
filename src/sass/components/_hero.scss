@@ -111,7 +111,15 @@
     }
 
     &__item {
-      width: 24px;
+        width: 24px;
         height: 24px;  
+    }
+
+    &__link {
+        fill: #FFF;
+
+        & svg {
+            fill: inherit;
+        }
     }
 }
