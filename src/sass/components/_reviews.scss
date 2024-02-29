@@ -1,35 +1,48 @@
 .reviews {
-    padding-block: 58px;
+    padding-block: 32px;
     background-image: url('../images/reviews/bg.jpg');
+    background-size: 100% 463px;
+    background-repeat: no-repeat;
+
 
     @media screen and (min-width: 835px) {
-        // padding-block: 58px;
+        padding-block: 58px;
+        background-size: 100% 640px;
+    }
+
+    @media screen and (min-width: 1440px) {
+        background-size: 100% 634px;
     }
 
 }
 
 .reviews__wrapper {
     margin-inline: auto;
+    width: 343px;
+
+    @media screen and (min-width: 835px) {
+       width: 770px;
+    }
+
+    @media screen and (min-width: 1440px) {
+        width: 1376px;
+    }
     
 }
 
-// .reviews__caption {
-//     color: var(--White, #FFF);
-
-//     text-align: center;
-    
-//     font-family: Jomolhari;
-//     font-size: 64px;
-//     font-style: normal;
-//     font-weight: 400;
-//     line-height: 140%;
-//     letter-spacing: 0.64px;
-
-//     margin-bottom: 42px;
-// }
-
 .reviews__list {
     gap: 32px;
+    margin-bottom: 24px;
+
+    @media screen and (min-width: 835px) {
+        margin-bottom: 32px;
+    }
+
+    @media screen and (min-width: 1440px) {
+        // width: 256px;
+        // height: 288px;
+    }
+
 }
 
 .reviews__item {
@@ -41,9 +54,14 @@
 
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-gap: 24px;
+    // grid-gap: 24px;
 
     @media screen and (min-width: 835px) {
+        width: 305px;
+        height: 268px;
+    }
+
+    @media screen and (min-width: 1440px) {
         width: 256px;
         height: 288px;
     }
@@ -93,4 +111,38 @@
     line-height: 140%;
     /* 22.4px */
     letter-spacing: 0.16px;
+}
+
+.reviews__btns_wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 343px;
+
+    margin-inline: auto;
+
+    @media screen and (min-width: 835px) {
+        width: 770px;
+    }
+
+    @media screen and (min-width: 1440px) {
+        width: 496px;
+    }
+}
+
+.prev__review, .next__review {
+    background-color: transparent;
+    border: none;
+
+    fill: #fff;
+
+    &_icon {
+        fill: inherit;
+        width: 114px;
+        height: 32px;
+
+        @media screen and (min-width: 835px) {
+            width: 144px;
+        }
+        
+    }
 }
