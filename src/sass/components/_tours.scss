@@ -16,6 +16,9 @@
     @media screen and (min-width: 1440px) {
         width: 1440px;
         padding-bottom: 0;
+        background-image: url('../images/tours/bg.png');
+        background-repeat: no-repeat;
+        background-position: right 60px bottom 20px;
     }
 
 
@@ -214,10 +217,6 @@
     border: none;
     fill: #fff;
 
-    &:disabled {
-        fill: #5A5959;
-        cursor: auto;
-    }
 }
 
 .prev__svg, .next__svg { 
