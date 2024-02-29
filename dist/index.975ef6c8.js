@@ -579,10 +579,40 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 }
 
 },{}],"8lqZg":[function(require,module,exports) {
+var _menu = require("./js/menu");
 var _header = require("./js/header");
 var _tours = require("./js/tours");
+var _gallery = require("./js/gallery");
+var _reviews = require("./js/reviews");
 
-},{"./js/header":"bvS82","./js/tours":"inMIr"}],"bvS82":[function(require,module,exports) {
+},{"./js/menu":"dTgwB","./js/header":"bvS82","./js/tours":"inMIr","./js/gallery":"iXSQ6","./js/reviews":"fYIS4"}],"dTgwB":[function(require,module,exports) {
+const menuOpenButton = document.querySelector(".menu__open_button");
+const menuCloseButton = document.querySelector(".menu__close_button");
+const burgerMenu = document.querySelector(".burger");
+const menuItems = document.querySelectorAll(".burger__menu_item a");
+menuOpenButton.addEventListener("click", openMenu);
+menuCloseButton.addEventListener("click", closeMenu);
+function openMenu() {
+    burgerMenu.classList.add("burger__open");
+    document.body.style.overflow = "hidden";
+}
+function closeMenu() {
+    burgerMenu.classList.remove("burger__open");
+    document.body.style.overflow = "";
+}
+menuItems.forEach((item)=>{
+    item.addEventListener("click", (event)=>{
+        burgerMenu.classList.remove("burger__open");
+        const targetId = item.getAttribute("href");
+        document.querySelector(targetId).scrollIntoView({
+            behavior: "smooth"
+        });
+        document.body.style.overflow = "";
+        event.preventDefault();
+    });
+});
+
+},{}],"bvS82":[function(require,module,exports) {
 window.addEventListener("scroll", function() {
     const header = document.querySelector(".header");
     const scrolled = window.scrollY;
@@ -610,9 +640,18 @@ function updateUI() {
         prevBtn.disabled = currentIndex === 0;
         nextBtn.disabled = currentIndex === maxIndex;
     } else {
-        showSlide(currentIndex);
-        prevBtn.disabled = currentIndex < 2;
-        nextBtn.disabled = currentIndex >= maxIndex;
+        if (currentIndex < maxIndex - 1) {
+            showSlide(currentIndex);
+            slides[currentIndex + 1].style.display = "block";
+        } else if (currentIndex === maxIndex - 1) {
+            showSlide(currentIndex);
+            slides[currentIndex + 1].style.display = "block";
+        } else {
+            showSlide(currentIndex - 1);
+            slides[currentIndex].style.display = "block";
+        }
+        prevBtn.disabled = currentIndex === 0;
+        nextBtn.disabled = currentIndex >= maxIndex - 1;
     }
 }
 prevBtn.addEventListener("click", ()=>{
@@ -629,6 +668,50 @@ nextBtn.addEventListener("click", ()=>{
 });
 window.addEventListener("resize", updateUI);
 updateUI();
+
+},{}],"iXSQ6":[function(require,module,exports) {
+let currentIndex = 0;
+const maxIndex = document.querySelectorAll(".gallery__item").length - 1;
+function prevSlide() {
+    if (currentIndex > 0) {
+        currentIndex--;
+        updateGallery();
+    }
+}
+function nextSlide() {
+    if (currentIndex < maxIndex) {
+        currentIndex++;
+        updateGallery();
+    }
+}
+function updateGallery() {
+    const slides = document.querySelectorAll(".gallery__item");
+    const screenWidth = window.innerWidth;
+    if (screenWidth < 835) for(let i = 0; i < slides.length; i++)slides[i].style.display = i === currentIndex ? "block" : "none";
+    else if (screenWidth < 1440) for(let i = 0; i < slides.length; i++)slides[i].style.display = i === currentIndex || i === currentIndex + 1 ? "block" : "none";
+    else for(let i = 0; i < slides.length; i++)slides[i].style.display = i === currentIndex || i === currentIndex + 1 || i === currentIndex + 2 ? "block" : "none";
+    const prevSlide = document.getElementById("prevSlide");
+    const nextSlide = document.getElementById("nextSlide");
+    prevSlide.disabled = currentIndex === 0;
+    nextSlide.disabled = currentIndex === maxIndex;
+}
+window.addEventListener("resize", updateGallery);
+document.getElementById("prevSlide").addEventListener("click", prevSlide);
+document.getElementById("nextSlide").addEventListener("click", nextSlide);
+
+},{}],"fYIS4":[function(require,module,exports) {
+// const swiper = new Swiper('.swiper', {
+//   // Optional parameters
+//   direction: 'gorizontal',
+//   width: 300,
+//   height: 500,
+//   //   loop: true,
+//   // Navigation arrows
+//   navigation: {
+//     nextEl: '.swiper-button-next',
+//     prevEl: '.swiper-button-prev',
+//   },
+// });
 
 },{}]},["4rkIz","8lqZg"], "8lqZg", "parcelRequire1631")
 

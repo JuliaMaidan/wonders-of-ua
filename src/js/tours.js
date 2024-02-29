@@ -15,16 +15,24 @@ function showSlide(index) {
     }
   });
 }
-
 function updateUI() {
   if (window.innerWidth < 1440) {
     showSlide(currentIndex);
     prevBtn.disabled = currentIndex === 0;
     nextBtn.disabled = currentIndex === maxIndex;
   } else {
-    showSlide(currentIndex);
-    prevBtn.disabled = currentIndex < 2;
-    nextBtn.disabled = currentIndex >= maxIndex;
+    if (currentIndex < maxIndex - 1) {
+      showSlide(currentIndex);
+      slides[currentIndex + 1].style.display = 'block';
+    } else if (currentIndex === maxIndex - 1) {
+      showSlide(currentIndex);
+      slides[currentIndex + 1].style.display = 'block';
+    } else {
+      showSlide(currentIndex - 1);
+      slides[currentIndex].style.display = 'block';
+    }
+    prevBtn.disabled = currentIndex === 0;
+    nextBtn.disabled = currentIndex >= maxIndex - 1;
   }
 }
 

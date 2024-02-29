@@ -1,76 +1,122 @@
 .footer {
-    padding-block: 32px 16px;
+    padding-block: 0 16px;
+
+    @media screen and (min-width: 835px) {
+        padding-block: 132px 16px;
+    }
+
+    @media screen and (min-width: 1440px) {
+        // padding-block: 220px 100px;
+        // background-image: url('../images/hero/desk.jpg');
+    }
 }
 
+
 .footer__wrapper {
-    width: 770px;
-    margin-inline: auto;
+    width: 311px;
+    margin-inline: auto; 
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    gap: 32px;
+    // align-items: center;
 
     margin-bottom: 64px;
+
+    @media screen and (min-width: 835px) {
+        width: 770px;
+        margin-inline: auto;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    @media screen and (min-width: 1440px) {
+        width: 1376px;
+    }
 }
 
 .footer__logo {
-    width: 169px;
-    height: 125px;
+    width: 127px;
+    height: 90px;
+
+    @media screen and (min-width: 835px) {
+        width: 169px;
+        height: 125px;
+    }
+
+    @media screen and (min-width: 1440px) {
+        width: 256px;
+        height: 177px;
+    }
 }
 
 .footer__menu {
     flex-direction: column;
-    gap: 16px;
+    gap: 8px;
+
+    @media screen and (min-width: 835px) {
+        gap: 16px;
+    }
 }
 
 .menu__item {
-    color: var(--White, #FFF);
-
-    /* Sub2 */
     font-family: Jomolhari;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 400;
+    font-size: 16px;
     line-height: 140%;
-    /* 25.2px */
-    letter-spacing: 0.18px;
+    letter-spacing: 0.16px;
+
+    @media screen and (min-width: 835px) {
+        font-size: 18px;
+        letter-spacing: 0.18px;
+    }
 }
 
 .contscts__wrapper {}
 
 .contacts {
     flex-direction: column;
-    gap: 16px;
+    gap: 8px;
 
-    margin-bottom: 40px;
+    margin-bottom: 32px;
+
+    @media screen and (min-width: 835px) {
+        gap: 16px;
+        
+        margin-bottom: 40px;
+    }
 }
 
 .contacts__item {
-    color: var(--White, #FFF);
-
-    /* Sub2 */
     font-family: Jomolhari;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 400;
+    font-size: 16px;
     line-height: 140%;
-    /* 25.2px */
-    letter-spacing: 0.18px;
+    letter-spacing: 0.16px;
+
+    @media screen and (min-width: 835px) {
+        font-size: 18px;
+        letter-spacing: 0.18px;
+    }
 }
 
 .footer__socials {
     gap: 15px;
 }
 
+.footer__svg {
+    width: 24px;
+    height: 24px;
+}
+
 .rights {
-    color: var(--White, #FFF);
     font-family: Jomolhari;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
+    font-size: 12px;
     line-height: 140%;
-    /* 19.6px */
-    letter-spacing: 0.14px;
+    letter-spacing: 0.12px;
 
     text-align: center;
     opacity: 0.8;
+
+    @media screen and (min-width: 835px) {
+        font-size: 14px;
+        letter-spacing: 0.14px;
+    }
 }

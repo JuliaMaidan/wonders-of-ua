@@ -2,12 +2,29 @@
     <div class="header__wrapper">
         <a class="logo" href="/">
             <img class="logo__img" src="./images/logo/logo.png" alt="logo">
+              <use href="./images/symbol-defs.svg/#icon-logo"></use>
+            </svg>
         </a>
         <ul class="menu">
-            <li class="menu__item">About us</li>
-            <li class="menu__item">Tours</li>
-            <li class="menu__item">Gallery</li>
-            <li class="menu__item">Contacts</li>
+            <li class="menu__item">
+                <a href="#about">About us</a>
+            </li>
+            <li class="menu__item">
+                <a href="#tours">Tours</a>
+            </li>
+            <li class="menu__item">
+                <a href="#gallery">Gallery</a>
+            </li>
+            <li class="menu__item">
+                <a href="#contacts">Contacts</a>
+            </li>
         </ul>
+        <button class="menu__open_button">
+            <svg class="menu__toggle_icon" width="40" height="40" fill="white" stroke="white">
+                <use href="./images/symbol-defs.svg#icon-open"></use>
+            </svg>
+        </button>
+        <!-- <button class="menu__toggle">
+        </button> -->
     </div>
 </header>

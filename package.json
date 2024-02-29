@@ -11,5 +11,9 @@
     "parcel": "^2.11.0",
     "parcel-reporter-clean-dist": "^1.0.4",
     "posthtml-include": "^1.7.4"
+  },
+  "dependencies": {
+    "slick-carousel": "^1.8.1",
+    "swiper": "^11.0.7"
   }
 }
