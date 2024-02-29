@@ -3,6 +3,11 @@ button {
     background-color: #394014;
     color: #FFF;
     font-family: Jomolhari;
+
+    &:disabled {
+        cursor: not-allowed;
+        fill: #5A5959;
+    }
 }
 
 body {

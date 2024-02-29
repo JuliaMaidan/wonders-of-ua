@@ -670,34 +670,40 @@ window.addEventListener("resize", updateUI);
 updateUI();
 
 },{}],"iXSQ6":[function(require,module,exports) {
+const galleryContainer = document.querySelector(".gallery__list");
+const gallery = galleryContainer.querySelectorAll(".gallery__item");
+const prevSlide = document.querySelector(".prev__photo");
+const nextSlide = document.querySelector(".next__photo");
 let currentIndex = 0;
-const maxIndex = document.querySelectorAll(".gallery__item").length - 1;
-function prevSlide() {
+const maxIndex = gallery.length - 1;
+function updateGallery() {
+    // Перевірка ширини вікна перегляду
+    if (window.innerWidth < 835) showSlides(1);
+    else if (window.innerWidth < 1440) showSlides(2);
+    else showSlides(3);
+}
+function showSlides(numberToShow) {
+    // Показати відповідну кількість відгуків, приховавши решту
+    gallery.forEach((slide, index)=>{
+        if (index < currentIndex || index >= currentIndex + numberToShow) slide.style.display = "none";
+        else slide.style.display = "block";
+    });
+}
+prevSlide.addEventListener("click", ()=>{
     if (currentIndex > 0) {
         currentIndex--;
         updateGallery();
     }
-}
-function nextSlide() {
+});
+nextSlide.addEventListener("click", ()=>{
     if (currentIndex < maxIndex) {
         currentIndex++;
         updateGallery();
     }
-}
-function updateGallery() {
-    const slides = document.querySelectorAll(".gallery__item");
-    const screenWidth = window.innerWidth;
-    if (screenWidth < 835) for(let i = 0; i < slides.length; i++)slides[i].style.display = i === currentIndex ? "block" : "none";
-    else if (screenWidth < 1440) for(let i = 0; i < slides.length; i++)slides[i].style.display = i === currentIndex || i === currentIndex + 1 ? "block" : "none";
-    else for(let i = 0; i < slides.length; i++)slides[i].style.display = i === currentIndex || i === currentIndex + 1 || i === currentIndex + 2 ? "block" : "none";
-    const prevSlide = document.getElementById("prevSlide");
-    const nextSlide = document.getElementById("nextSlide");
-    prevSlide.disabled = currentIndex === 0;
-    nextSlide.disabled = currentIndex === maxIndex;
-}
+});
+// Оновлення відображення при завантаженні сторінки та зміні розміру вікна
+window.addEventListener("load", updateGallery);
 window.addEventListener("resize", updateGallery);
-document.getElementById("prevSlide").addEventListener("click", prevSlide);
-document.getElementById("nextSlide").addEventListener("click", nextSlide);
 
 },{}],"fYIS4":[function(require,module,exports) {
 const reviewsContainer = document.querySelector(".reviews__list");

@@ -28,6 +28,8 @@
     
         margin-top: 16px;
         margin-bottom: 225px;
+
+        transition: all 0.3s ease-in;
     
         @media screen and (min-width: 835px) {
             margin-top: 0;
@@ -39,6 +41,11 @@
         @media screen and (min-width: 1440px) {
             padding: 16px 52px;
             margin-bottom: 4px;
+        }
+
+        &:hover, &:focus {
+            background-color: #2c320f;
+            scale: 1.01;
         }
     }
 
