@@ -584,8 +584,9 @@ var _header = require("./js/header");
 var _tours = require("./js/tours");
 var _gallery = require("./js/gallery");
 var _reviews = require("./js/reviews");
+var _form = require("./js/form");
 
-},{"./js/menu":"dTgwB","./js/header":"bvS82","./js/tours":"inMIr","./js/gallery":"iXSQ6","./js/reviews":"fYIS4"}],"dTgwB":[function(require,module,exports) {
+},{"./js/menu":"dTgwB","./js/header":"bvS82","./js/tours":"inMIr","./js/gallery":"iXSQ6","./js/reviews":"fYIS4","./js/form":"l9hyy"}],"dTgwB":[function(require,module,exports) {
 const menuOpenButton = document.querySelector(".menu__open_button");
 const menuCloseButton = document.querySelector(".menu__close_button");
 const burgerMenu = document.querySelector(".burger");
@@ -622,14 +623,14 @@ window.addEventListener("scroll", function() {
 });
 
 },{}],"inMIr":[function(require,module,exports) {
-const slider = document.querySelector(".tours__list");
-const slides = document.querySelectorAll(".tour");
-const prevBtn = document.querySelector(".prev");
-const nextBtn = document.querySelector(".next");
+const allTours = document.querySelector(".tours__list");
+const tour = document.querySelectorAll(".tour");
+const prevTour = document.querySelector(".js-prev-tour");
+const nextTour = document.querySelector(".js-next-tour");
 let currentIndex = 0;
-const maxIndex = slides.length - 1;
+const maxIndex = tour.length - 1;
 function showSlide(index) {
-    slides.forEach((slide, i)=>{
+    tour.forEach((slide, i)=>{
         if (i === index) slide.style.display = "block";
         else slide.style.display = "none";
     });
@@ -637,30 +638,30 @@ function showSlide(index) {
 function updateUI() {
     if (window.innerWidth < 1440) {
         showSlide(currentIndex);
-        prevBtn.disabled = currentIndex === 0;
-        nextBtn.disabled = currentIndex === maxIndex;
+        prevTour.disabled = currentIndex === 0;
+        nextTour.disabled = currentIndex === maxIndex;
     } else {
         if (currentIndex < maxIndex - 1) {
             showSlide(currentIndex);
-            slides[currentIndex + 1].style.display = "block";
+            tour[currentIndex + 1].style.display = "block";
         } else if (currentIndex === maxIndex - 1) {
             showSlide(currentIndex);
-            slides[currentIndex + 1].style.display = "block";
+            tour[currentIndex + 1].style.display = "block";
         } else {
             showSlide(currentIndex - 1);
-            slides[currentIndex].style.display = "block";
+            tour[currentIndex].style.display = "block";
         }
-        prevBtn.disabled = currentIndex === 0;
-        nextBtn.disabled = currentIndex >= maxIndex - 1;
+        prevTour.disabled = currentIndex === 0;
+        nextTour.disabled = currentIndex >= maxIndex - 1;
     }
 }
-prevBtn.addEventListener("click", ()=>{
+prevTour.addEventListener("click", ()=>{
     if (currentIndex > 0) {
         currentIndex--;
         updateUI();
     }
 });
-nextBtn.addEventListener("click", ()=>{
+nextTour.addEventListener("click", ()=>{
     if (currentIndex < maxIndex) {
         currentIndex++;
         updateUI();
@@ -672,18 +673,20 @@ updateUI();
 },{}],"iXSQ6":[function(require,module,exports) {
 const galleryContainer = document.querySelector(".gallery__list");
 const gallery = galleryContainer.querySelectorAll(".gallery__item");
-const prevSlide = document.querySelector(".prev__photo");
-const nextSlide = document.querySelector(".next__photo");
+const prevSlide = document.querySelector(".js-prev-slide");
+const nextSlide = document.querySelector(".js-next-slide");
 let currentIndex = 0;
 const maxIndex = gallery.length - 1;
 function updateGallery() {
-    // Перевірка ширини вікна перегляду
     if (window.innerWidth < 835) showSlides(1);
     else if (window.innerWidth < 1440) showSlides(2);
     else showSlides(3);
+    prevSlide.disabled = currentIndex === 0;
+    if (window.innerWidth < 835) nextSlide.disabled = currentIndex === maxIndex;
+    else if (window.innerWidth < 1440) nextSlide.disabled = currentIndex >= maxIndex - 1;
+    else nextSlide.disabled = currentIndex >= maxIndex - 2;
 }
 function showSlides(numberToShow) {
-    // Показати відповідну кількість відгуків, приховавши решту
     gallery.forEach((slide, index)=>{
         if (index < currentIndex || index >= currentIndex + numberToShow) slide.style.display = "none";
         else slide.style.display = "block";
@@ -701,25 +704,26 @@ nextSlide.addEventListener("click", ()=>{
         updateGallery();
     }
 });
-// Оновлення відображення при завантаженні сторінки та зміні розміру вікна
 window.addEventListener("load", updateGallery);
 window.addEventListener("resize", updateGallery);
 
 },{}],"fYIS4":[function(require,module,exports) {
-const reviewsContainer = document.querySelector(".reviews__list");
-const reviews = reviewsContainer.querySelectorAll(".reviews__item");
-const prevReview = document.querySelector(".prev__review");
-const nextReview = document.querySelector(".next__review");
+const reviewsList = document.querySelector(".reviews__list");
+const reviews = reviewsList.querySelectorAll(".reviews__item");
+const prevReview = document.querySelector(".js-prev-review");
+const nextReview = document.querySelector(".js-next-review");
 let currentIndex = 0;
 const maxIndex = reviews.length - 1;
 function updateUI() {
-    // Перевірка ширини вікна перегляду
     if (window.innerWidth < 835) showReviews(1);
     else if (window.innerWidth < 1440) showReviews(2);
     else showReviews(4);
+    prevReview.disabled = currentIndex === 0;
+    if (window.innerWidth < 835) nextReview.disabled = currentIndex === maxIndex;
+    else if (window.innerWidth < 1440) nextReview.disabled = currentIndex >= maxIndex - 1;
+    else nextReview.disabled = currentIndex >= maxIndex - 3;
 }
 function showReviews(numberToShow) {
-    // Показати відповідну кількість відгуків, приховавши решту
     reviews.forEach((review, index)=>{
         if (index < currentIndex || index >= currentIndex + numberToShow) review.style.display = "none";
         else review.style.display = "grid";
@@ -737,9 +741,36 @@ nextReview.addEventListener("click", ()=>{
         updateUI();
     }
 });
-// Оновлення відображення при завантаженні сторінки та зміні розміру вікна
 window.addEventListener("load", updateUI);
 window.addEventListener("resize", updateUI);
+
+},{}],"l9hyy":[function(require,module,exports) {
+function submitForm(event) {
+    event.preventDefault(); // Щоб уникнути автоматичного відправлення форми
+    // Отримуємо значення полів форми
+    const name = document.getElementById("name").value;
+    const phone = document.getElementById("phone").value;
+    const message = document.getElementById("message").value;
+    // Отримуємо модальне вікно
+    const modal = document.getElementById("modal");
+    const modalContent = document.getElementById("modal-content");
+    // Встановлюємо вміст модального вікна з введеними даними
+    modalContent.innerHTML = `Name: ${name}<br>Phone: ${phone}<br>Message: ${message}`;
+    // Показуємо модальне вікно
+    modal.style.display = "block";
+}
+// Отримуємо кнопку для закриття модального вікна
+const closeBtn = document.getElementsByClassName("close")[0];
+// Додаємо обробник події для закриття модального вікна
+closeBtn.onclick = function() {
+    const modal = document.getElementById("modal");
+    modal.style.display = "none";
+};
+// Закриття модального вікна при натисканні поза ним
+window.onclick = function(event) {
+    const modal = document.getElementById("modal");
+    if (event.target === modal) modal.style.display = "none";
+};
 
 },{}]},["4rkIz","8lqZg"], "8lqZg", "parcelRequire1631")
 

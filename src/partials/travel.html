@@ -11,13 +11,18 @@
             </div>
             <form action="" class="form">
                 <label class="label" for="name">Name</label>
-                <input id="name" class="input" type="text" placeholder="Enter your name">
+                <input id="name" class="input" type="text" placeholder="Enter your name" pattern="[a-zA-Z]{3,30}" title="Please enter 3 to 30 characters with only Latin letters">
                 <label class="label" for="phone">Phone</label>
-                <input class="input" type="text" id="phone" placeholder="+380__-___-__-__">
-                <textarea class="message" name="text" id="" cols="30" rows="10" placeholder="Your message
-"></textarea>
+                <input class="input" type="text" id="phone" placeholder="+380__-___-__-__" pattern="\+380\d{9}"
+                    title="Please enter a valid phone number in the format +380 followed by 9 digits">
+                <textarea class="message" name="text" id="message" cols="30" rows="10" placeholder="Your message"
+                    pattern="[a-zA-Z\s\.,?!'-]{1,150}"
+                    title="Please enter up to 150 characters with only Latin letters and various punctuation marks"
+                    maxlength="150"></textarea>
+
                 <button class="travel__btn">Send</button>
             </form>
+            
         </div>
     </div>
 </section>

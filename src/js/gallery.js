@@ -1,13 +1,12 @@
 const galleryContainer = document.querySelector('.gallery__list');
 const gallery = galleryContainer.querySelectorAll('.gallery__item');
-const prevSlide = document.querySelector('.prev__photo');
-const nextSlide = document.querySelector('.next__photo');
+const prevSlide = document.querySelector('.js-prev-slide');
+const nextSlide = document.querySelector('.js-next-slide');
 
 let currentIndex = 0;
 const maxIndex = gallery.length - 1;
 
 function updateGallery() {
-  // Перевірка ширини вікна перегляду
   if (window.innerWidth < 835) {
     showSlides(1);
   } else if (window.innerWidth < 1440) {
@@ -15,10 +14,18 @@ function updateGallery() {
   } else {
     showSlides(3);
   }
+
+  prevSlide.disabled = currentIndex === 0;
+  if (window.innerWidth < 835) {
+    nextSlide.disabled = currentIndex === maxIndex;
+  } else if (window.innerWidth < 1440) {
+    nextSlide.disabled = currentIndex >= maxIndex - 1;
+  } else {
+    nextSlide.disabled = currentIndex >= maxIndex - 2;
+  }
 }
 
 function showSlides(numberToShow) {
-  // Показати відповідну кількість відгуків, приховавши решту
   gallery.forEach((slide, index) => {
     if (index < currentIndex || index >= currentIndex + numberToShow) {
       slide.style.display = 'none';
@@ -42,6 +49,5 @@ nextSlide.addEventListener('click', () => {
   }
 });
 
-// Оновлення відображення при завантаженні сторінки та зміні розміру вікна
 window.addEventListener('load', updateGallery);
 window.addEventListener('resize', updateGallery);

@@ -1,3 +1,14 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    margin-inline: auto;
+    color: #FFF;
+    background-color: #141A19;
+}
+
 button {
     cursor: pointer;
     background-color: #394014;
@@ -7,14 +18,12 @@ button {
     &:disabled {
         cursor: not-allowed;
         fill: #5A5959;
-    }
-}
 
-body {
-    margin: 0;
-    margin-inline: auto;
-    color: #FFF;
-    background-color: #141A19;
+        &:hover, &:focus {
+            transform: none;
+            opacity: 1;
+        }
+    }
 }
 
 .section {

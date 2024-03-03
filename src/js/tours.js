@@ -1,13 +1,13 @@
-const slider = document.querySelector('.tours__list');
-const slides = document.querySelectorAll('.tour');
-const prevBtn = document.querySelector('.prev');
-const nextBtn = document.querySelector('.next');
+const allTours = document.querySelector('.tours__list');
+const tour = document.querySelectorAll('.tour');
+const prevTour = document.querySelector('.js-prev-tour');
+const nextTour = document.querySelector('.js-next-tour');
 
 let currentIndex = 0;
-const maxIndex = slides.length - 1;
+const maxIndex = tour.length - 1;
 
 function showSlide(index) {
-  slides.forEach((slide, i) => {
+  tour.forEach((slide, i) => {
     if (i === index) {
       slide.style.display = 'block';
     } else {
@@ -18,32 +18,32 @@ function showSlide(index) {
 function updateUI() {
   if (window.innerWidth < 1440) {
     showSlide(currentIndex);
-    prevBtn.disabled = currentIndex === 0;
-    nextBtn.disabled = currentIndex === maxIndex;
+    prevTour.disabled = currentIndex === 0;
+    nextTour.disabled = currentIndex === maxIndex;
   } else {
     if (currentIndex < maxIndex - 1) {
       showSlide(currentIndex);
-      slides[currentIndex + 1].style.display = 'block';
+      tour[currentIndex + 1].style.display = 'block';
     } else if (currentIndex === maxIndex - 1) {
       showSlide(currentIndex);
-      slides[currentIndex + 1].style.display = 'block';
+      tour[currentIndex + 1].style.display = 'block';
     } else {
       showSlide(currentIndex - 1);
-      slides[currentIndex].style.display = 'block';
+      tour[currentIndex].style.display = 'block';
     }
-    prevBtn.disabled = currentIndex === 0;
-    nextBtn.disabled = currentIndex >= maxIndex - 1;
+    prevTour.disabled = currentIndex === 0;
+    nextTour.disabled = currentIndex >= maxIndex - 1;
   }
 }
 
-prevBtn.addEventListener('click', () => {
+prevTour.addEventListener('click', () => {
   if (currentIndex > 0) {
     currentIndex--;
     updateUI();
   }
 });
 
-nextBtn.addEventListener('click', () => {
+nextTour.addEventListener('click', () => {
   if (currentIndex < maxIndex) {
     currentIndex++;
     updateUI();

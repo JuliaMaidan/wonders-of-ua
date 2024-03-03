@@ -1,5 +1,5 @@
 .footer {
-    padding-block: 0 16px;
+    padding-block: 64px 16px;
 
     @media screen and (min-width: 835px) {
         padding-block: 132px 16px;
@@ -13,12 +13,13 @@
 
 
 .footer__wrapper {
-    width: 311px;
+    width: 343px;
     margin-inline: auto; 
     display: flex;
     flex-direction: column;
+
     gap: 32px;
-    // align-items: center;
+    align-items: center;
 
     margin-bottom: 64px;
 
@@ -37,10 +38,12 @@
 .footer__logo {
     width: 127px;
     height: 90px;
+    opacity: 0.8;
 
     @media screen and (min-width: 835px) {
         width: 169px;
         height: 125px;
+        opacity: 1;
     }
 
     @media screen and (min-width: 1440px) {
@@ -52,9 +55,11 @@
 .footer__menu {
     flex-direction: column;
     gap: 8px;
+    align-items: center;
 
     @media screen and (min-width: 835px) {
         gap: 16px;
+        align-items: baseline;
     }
 }
 
@@ -75,13 +80,16 @@
 .contacts {
     flex-direction: column;
     gap: 8px;
+    align-items: center;
 
     margin-bottom: 32px;
+    opacity: 0.8;
 
     @media screen and (min-width: 835px) {
         gap: 16px;
-        
+        opacity: 1;
         margin-bottom: 40px;
+        align-items: flex-end;
     }
 }
 
@@ -99,6 +107,13 @@
 
 .footer__socials {
     gap: 15px;
+    justify-content: center;
+    opacity: 0.8;
+
+    @media screen and (min-width: 835px) {
+        justify-content: flex-end;
+        opacity: 1;
+    }
 }
 
 .footer__svg {
@@ -113,7 +128,7 @@
     letter-spacing: 0.12px;
 
     text-align: center;
-    opacity: 0.8;
+    opacity: 0.7;
 
     @media screen and (min-width: 835px) {
         font-size: 14px;
