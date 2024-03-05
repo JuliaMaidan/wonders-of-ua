@@ -1,9 +1,5 @@
 .travel {
-    // padding-block: 54px;
-
-    // @media screen and (min-width: 835px) {
         padding-block: 100px 0;
-    // }
 }
 
 .travel__wrapper {
@@ -92,6 +88,7 @@
     border: 1px solid var(--White, #FFF);
     border-radius: 2px;
     color: #FFF;
+    transition: all .2s ease-in;
 
     @media screen and (min-width: 835px) {
         width: 296px;
@@ -99,6 +96,15 @@
             background-color: transparent;
             border: 1px solid var(--White, #FFF);
             border-radius: 2px;
+    }
+
+    &:hover {
+        opacity: 0.8;
+        box-shadow: rgba(243, 240, 240, 0.592) 0px 1px 4px;
+    }
+
+    &:focus {
+        box-shadow: rgba(243, 240, 240, 0.592) 0px 1px 4px;
     }
 }
 
