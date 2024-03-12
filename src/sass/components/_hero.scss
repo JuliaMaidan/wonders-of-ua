@@ -4,6 +4,8 @@
     background-size: cover;
     padding-block: 280px 32px;
 
+    animation: background 1.7s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
+
     @media screen and (min-width: 835px) {
         padding-block: 320px 64px;
         background-image: url('../images/hero/tab.jpg');
@@ -66,7 +68,6 @@
     width: 224px;
     margin-inline: auto;
 
--webkit-animation: puff-in-center 0.7s cubic-bezier(0.470, 0.000, 0.745, 0.715) 1s both;
     animation: puff-in-center 0.7s cubic-bezier(0.470, 0.000, 0.745, 0.715) 1s both;
 
     @media screen and (min-width: 835px) {
@@ -83,7 +84,6 @@
         line-height: 100%;
         letter-spacing: 0.64px;
 
--webkit-animation: puff-in-center 1s cubic-bezier(0.470, 0.000, 0.745, 0.715) 1.7s both;
     animation: puff-in-center 1s cubic-bezier(0.470, 0.000, 0.745, 0.715) 1.7s both;
 
         @media screen and (min-width: 835px) {
@@ -117,6 +117,8 @@
 .socials {
     gap: 15px;
     justify-content: center;
+
+    animation: scale-in-ver-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 3.2s both;
 
     @media screen and (min-width: 835px) {
         flex-direction: column;
@@ -158,7 +160,7 @@
     }
 }
 
-@-webkit-keyframes puff-in-center {
+@keyframes puff-in-center {
     0% {
         -webkit-transform: scale(2);
         transform: scale(2);
@@ -176,20 +178,26 @@
     }
 }
 
-@keyframes puff-in-center {
+@keyframes background {
     0% {
-        -webkit-transform: scale(2);
-        transform: scale(2);
-        -webkit-filter: blur(4px);
-        filter: blur(4px);
-        opacity: 0;
+        filter: blur(10px);
+        opacity: 0.5;
     }
 
     100% {
-        -webkit-transform: scale(1);
-        transform: scale(1);
-        -webkit-filter: blur(0px);
         filter: blur(0px);
+        opacity: 1;
+    }
+}
+
+@keyframes scale-in-ver-center {
+    0% {
+        transform: scaleY(0);
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: scaleY(1);
         opacity: 1;
     }
 }

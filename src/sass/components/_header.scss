@@ -9,6 +9,8 @@
     height: 60px;
     z-index: 100;
 
+    animation: scale-in-ver-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 3s both;
+
     &.scrolled {
         background-color: #141a19e0;
     }
