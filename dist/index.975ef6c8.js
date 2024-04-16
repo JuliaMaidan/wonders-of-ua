@@ -581,12 +581,13 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 },{}],"8lqZg":[function(require,module,exports) {
 var _menu = require("./js/menu");
 var _header = require("./js/header");
+var _hero = require("./js/hero");
 var _tours = require("./js/tours");
 var _gallery = require("./js/gallery");
 var _reviews = require("./js/reviews");
 var _form = require("./js/form");
 
-},{"./js/menu":"dTgwB","./js/header":"bvS82","./js/tours":"inMIr","./js/gallery":"iXSQ6","./js/reviews":"fYIS4","./js/form":"l9hyy"}],"dTgwB":[function(require,module,exports) {
+},{"./js/menu":"dTgwB","./js/header":"bvS82","./js/tours":"inMIr","./js/gallery":"iXSQ6","./js/reviews":"fYIS4","./js/form":"l9hyy","./js/hero":"9GywF"}],"dTgwB":[function(require,module,exports) {
 const menuOpenButton = document.querySelector(".menu__open_button");
 const menuCloseButton = document.querySelector(".menu__close_button");
 const burgerMenu = document.querySelector(".burger");
@@ -669,6 +670,15 @@ nextTour.addEventListener("click", ()=>{
 });
 window.addEventListener("resize", updateUI);
 updateUI();
+document.addEventListener("DOMContentLoaded", function() {
+    let bookTour = document.getElementById("bookTour");
+    bookTour.addEventListener("click", function() {
+        let contactsSection = document.getElementById("contacts");
+        contactsSection.scrollIntoView({
+            behavior: "smooth"
+        });
+    });
+});
 
 },{}],"iXSQ6":[function(require,module,exports) {
 const galleryContainer = document.querySelector(".gallery__list");
@@ -773,6 +783,17 @@ window.addEventListener("resize", updateUI);
 //     modal.style.display = 'none';
 //   }
 // };
+
+},{}],"9GywF":[function(require,module,exports) {
+document.addEventListener("DOMContentLoaded", function() {
+    let scrollToTourButton = document.getElementById("scrollToTour");
+    scrollToTourButton.addEventListener("click", function() {
+        let tourSection = document.getElementById("tours");
+        tourSection.scrollIntoView({
+            behavior: "smooth"
+        });
+    });
+});
 
 },{}]},["4rkIz","8lqZg"], "8lqZg", "parcelRequire1631")
 

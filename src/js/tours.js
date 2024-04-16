@@ -53,3 +53,12 @@ nextTour.addEventListener('click', () => {
 window.addEventListener('resize', updateUI);
 
 updateUI();
+
+document.addEventListener('DOMContentLoaded', function () {
+  let bookTour = document.getElementById('bookTour');
+
+  bookTour.addEventListener('click', function () {
+    let contactsSection = document.getElementById('contacts');
+    contactsSection.scrollIntoView({ behavior: 'smooth' });
+  });
+});
